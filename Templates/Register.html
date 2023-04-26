@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Registration Page</title>
+      <style>
+          body {
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+form {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+  width: 50%;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="email"], input[type="text"], input[type="password"], select {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+      </style>
+  </head>
+  <body>
+    <h1>Registration Page</h1>
+    <form method="POST" action="/">
+      <label for="Email">Email:</label>
+      <input type="email" name="Email" required>
+      <br>
+      <label for="username">Username:</label>
+      <input type="text" name="username" required>
+      <br>
+      <label for="Password">Password:</label>
+      <input type="password" name="Password" required>
+      <br>
+      <label for="Job">Job:</label>
+      <select name="Job" required>
+        <option value="">Select a job</option>
+        <option value="Customer">Customer</option>
+        <option value="Vendor">Vendor</option>
+        <option value="Admin">Admin</option>
+      </select>
+      <br>
+      <button type="submit">Register</button>
+    </form>
+    <br>
+    <p>Already have an account? <a href="/login">Log in here</a>.</p>
+  </body>
+</html>
