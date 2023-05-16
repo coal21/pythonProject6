@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Account Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .info {
+      margin-top: 30px;
+    }
+
+    .info div {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Account Information</h1>
+  <div class="info">
+    <div>{{ user.Email }}</div>
+    <div>{{ user.Username }}</div>
+    <div>{{ user.Password }}</div>
+    <div>{{ user.Job }}</div>
+  </div>
+</body>
+</html>

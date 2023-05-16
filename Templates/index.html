@@ -1,10 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <title>Ecommerce Website</title>
+    <link rel="stylesheet" href="style.css">
+      <style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
 
-</body>
+/* Header Styles */
+header {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+/* Navigation Styles */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  overflow: hidden;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+666+
+
+
+nav li a:hover {
+  background-color: #ddd;
+}
+
+/* Main Content Styles */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px
+}
+
+#products {
+  width: 25%;
+  padding: 10px;
+}
+
+.thumbnail {
+  position: relative;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+.caption h4 {
+  margin: 0;
+}
+
+.caption p {
+  margin: 0;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/* Cart Styles */
+.cart {
+  margin-top: 50px;
+}
+
+#cart {
+  width: 25%;
+  padding: 10px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+      </style>
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to my Store</h1>
+    </header>
+    <nav>
+      <ul>
+          <li><a href="/account">Account</a></li>
+          <li><a href="http://">Reviews</a></li>
+          <li><a href="http://">Checkout</a></li>
+          <li><a href="{{url_for('logout')}}">logout</a></li>
+      </ul>
+    </nav>
+<main>
+  <div class="container">
+    {% for product in products %}
+      <div id="products" class="row">
+        <div class="col-md-4">
+          <div class="thumbnail">
+            <img src="{{ product.image }}" alt="">
+            <div class="caption">
+              <h4>{{ product.title }}</h4>
+              <p>{{ product.description }}</p>
+              <p>{{ product.prices }}</p>
+              <form method="POST" action="{{url_for('add_to_cart_route')}}">
+                <input type="hidden" name="title" value="{{ product.title }}">
+                <input type="hidden" name="prices" value="{{ product.prices }}">
+                <input type="hidden" name="product_ID" value="{{ product.product_ID }}">
+                <button type="submit">Add to Cart</button>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+  <div class="cart">
+  {% for cart in cart %}
+    <div id="cart" class="row">
+      <div class="">
+        <div class="thumbnail">
+          <img src="{{ cart.image }}" alt="">
+          <div class="caption">
+            <h4>{{ cart.title }}</h4>
+            <p>{{ cart.description }}</p>
+            <p>{{ cart.prices }}</p>
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+    <form method="POST" action="{{url_for('ordercart')}}">
+    <button type="submit">Order</button>
+    </form>
+</div>
+  <div class="Goback">
+    <a href="index.HTML
+"></a>
+  </div>
+</main>
+    <footer>
+
+    </footer>
+  </body>
 </html>

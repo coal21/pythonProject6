@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Checkout</title>
+    <style>
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      .cart-item img {
+        width: 50px;
+        height: 50px;
+        object-fit: contain;
+        margin-right: 10px;
+      }
+      .cart-item span {
+        flex: 1;
+      }
+      .cart-total {
+        font-weight: bold;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Checkout</h1>
+
+    <!-- Cart -->
+    <h2>Cart</h2>
+    <div class="cart">
+      <!-- Example cart items -->
+      <div class="cart-item">
+        <img src="https://via.placeholder.com/50x50" alt="Product Image">
+        <span>Product Name</span>
+        <span>$10.00</span>
+      </div>
+      <div class="cart-item">
+        <img src="https://via.placeholder.com/50x50" alt="Product Image">
+        <span>Product Name</span>
+        <span>$20.00</span>
+      </div>
+      <div class="cart-item">
+        <img src="https://via.placeholder.com/50x50" alt="Product Image">
+        <span>Product Name</span>
+        <span>$15.00</span>
+      </div>
+
+      <!-- Cart total -->
+      <div class="cart-total">
+        Total: $45.00
+      </div>
+    </div>
+
+    <!-- Payment form -->
+    <h2>Payment Information</h2>
+    <form method="post" action="/vendor">
+      <label for="name">Name on Card:</label>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="card-number">Card Number:</label>
+      <input type="text" id="card-number" name="card-number" required><br><br>
+
+      <label for="expiry-date">Expiry Date:</label>
+      <input type="text" id="expiry-date" name="expiry-date" required><br><br>
+
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" name="cvv" required><br><br>
+
+      <input type="submit" value="Pay Now">
+    </form>
+  </body>
+</html>
