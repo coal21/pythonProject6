@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Account Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      font-size: 32px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .info {
+      margin-top: 30px;
+      border: 2px solid #333;
+      padding: 20px;
+      background-color: #f5f5f5;
+      border-radius: 10px;
+    }
+
+    .info div {
+      margin-bottom: 10px;
+    }
+
+    .info div:first-child {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .info div:nth-child(2) {
+      font-style: italic;
+    }
+
+    .info div:last-child {
+      font-weight: bold;
+      font-size: 18px;
+      color: #ff8800;
+    }
+  </style>
+</head>
+<body>
+  <h1>Customer Reviews</h1>
+  {% for reviews in Review%}
+  <div class="info">
+    <div>{{ reviews.Email }}</div>
+    <div>{{ reviews.review_text }}</div>
+    <div>{{ reviews.rating }}</div>
+  </div>
+  {% endfor %}
+</body>
+</html>

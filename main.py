@@ -45,7 +45,7 @@ def login():
                 username=user[1]
                 print(user[0])
                 print(email)
-                return redirect(url_for('vendorItems', username=username))
+                return redirect(url_for('display', username=username))
             elif user[3] == 'Customer':
                 session['Email'] = user[0]
                 username=user[1]
@@ -57,7 +57,7 @@ def login():
                 username=user[1]
                 print(user[0])
                 print(email)
-                return redirect(url_for('display', username=username))
+                return render_template('AdminPage.html', username=username)
 
 
             return redirect(url_for('base', username=user[1]))
@@ -86,6 +86,7 @@ def vendorItems():
 def base():
     products = conn.execute(text('SELECT * From Product')).fetchall()
     return render_template('index.html', products=products)
+
 
 
 
@@ -188,12 +189,16 @@ def review():
         email = session['Email']
         review_text = request.form['review_text']
         rating = request.form['rating']
-        conn.execute(text('INSERT INTO Review(Email, review_text, rating)'), {'Email': email, 'review_text': review_text, 'rating': rating})
+        conn.execute(text('INSERT INTO Review(Email, review_text, rating) VALUES (:Email, :review_text, :rating)'), {'Email': email, 'review_text': review_text, 'rating': rating})
         conn.commit()
         return render_template('thank_you.html')
     else:
         return render_template('Review.html')
 
+@app.route('/Rdisplay', methods=['Get'])
+def reviewdisplay():
+    Review = conn.execute(text('SELECT * From Review')).fetchall()
+    return render_template('AdminReview.HTML', Review=Review)
 
 @app.route('/logout')
 def logout():
